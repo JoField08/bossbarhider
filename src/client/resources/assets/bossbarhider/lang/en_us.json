@@ -1,0 +1,8 @@
+{
+  "title.bossbarhider.config": "BossBar Hider",
+  "category.bossbarhider.general": "General",
+  "option.bossbarhider.enabled": "Enable BossBar Hider",
+  "option.bossbarhider.enabled.tooltip": "Toggles hiding of matching boss bars on/off.",
+  "option.bossbarhider.strings_to_hide": "Titles to hide",
+  "option.bossbarhider.strings_to_hide.tooltip": "Any boss bar whose title contains one of these strings (case-insensitive) will be hidden. One entry per line."
+}

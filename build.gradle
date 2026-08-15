@@ -1,0 +1,102 @@
+plugins {
+    id 'net.fabricmc.fabric-loom' version "${loom_version}"
+    id 'org.jetbrains.kotlin.jvm' version '2.4.0'
+    id 'maven-publish'
+
+    id("org.jetbrains.kotlin.plugin.serialization") version "2.4.20-Beta1"
+}
+
+version = project.mod_version
+group = project.maven_group
+
+base {
+    archivesName = project.archives_base_name
+}
+
+repositories {
+    mavenCentral()
+
+    // Fuer ModMenu (Konfig-Screen-Integration)
+    // Hinweis: der eigentliche Artefakt-Pfad liegt unter /releases/ - ohne das
+    // Segment liefert die Maven fuer alle modmenu-Versionen 404.
+    maven {
+        name = "Terraformers"
+        url = "https://maven.terraformersmc.com/releases/"
+    }
+
+    // Cloth Config
+    maven {
+        name = "shedaniel"
+        url = "https://maven.shedaniel.me/"
+    }
+
+    // Text Placeholder API
+    maven {
+        name = "Nucleoid"
+        url = "https://maven.nucleoid.xyz/"
+    }
+}
+
+loom {
+    splitEnvironmentSourceSets()
+
+    mods {
+        "bossbarhider" {
+            sourceSet sourceSets.main
+            sourceSet sourceSets.client
+        }
+    }
+}
+
+fabricApi {
+    configureDataGeneration {
+        client = true
+    }
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    implementation "net.fabricmc:fabric-loader:${project.loader_version}"
+    implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
+    implementation "net.fabricmc:fabric-language-kotlin:${project.fabric_kotlin_version}"
+
+    // ModMenu
+    implementation "com.terraformersmc:modmenu:${project.modmenu_version}"
+
+    // Text Placeholder API
+    implementation "eu.pb4:placeholder-api:${project.placeholder_api_version}"
+
+    // Cloth Config
+    implementation "me.shedaniel.cloth:cloth-config-fabric:${project.cloth_config_version}"
+
+    // KotlinX Serialization
+    implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:1.8.0"
+}
+
+processResources {
+    inputs.property "version", project.version
+
+    filesMatching("fabric.mod.json") {
+        expand "version": project.version
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    it.options.release = 25
+}
+
+kotlin {
+    jvmToolchain(25)
+}
+
+java {
+    withSourcesJar()
+    sourceCompatibility = JavaVersion.toVersion(25)
+    targetCompatibility = JavaVersion.toVersion(25)
+}
+
+jar {
+    from("LICENSE.txt") {
+        rename { "${it}_${project.archives_base_name}" }
+    }
+}

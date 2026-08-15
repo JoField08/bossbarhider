@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "minVersion": "0.8.5",
+  "package": "de.jo_field.bossbarhider.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "BossHealthOverlayAccessor",
+    "BossHealthOverlayMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
