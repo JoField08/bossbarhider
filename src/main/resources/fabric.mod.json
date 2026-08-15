@@ -4,7 +4,7 @@
   "version": "${version}",
   "name": "BossBar Hider",
   "description": "A client-side mod that allows you to automatically hide boss bars based on a configurable list of titles. Keep your HUD clean and free from unwanted boss health bars on servers.",
-  "authors": ["Du"],
+  "authors": ["Jo_field"],
   "contact": {},
   "license": "GNU GENERAL PUBLIC LICENSE - Version 3",
   "environment": "client",
