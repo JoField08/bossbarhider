@@ -12,7 +12,6 @@ class BossBarHiderClient : ClientModInitializer {
     }
 
     override fun onInitializeClient() {
-        BossBarsCommand.register()
         BossBarHiderConfig.load()
         LOGGER.info("BossBar Hider initialized ({} rules, enabled={})",
             BossBarHiderConfig.current.rules.size, BossBarHiderConfig.current.isHiderEnabled)
