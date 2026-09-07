@@ -12,7 +12,7 @@ data class BossBarFilterRule(
     var music: TriState = TriState.ANY,
     var fog: TriState = TriState.ANY,
 ) {
-    /** A rule with no active condition would otherwise match every boss bar - guard against that. */
+    /** A rule with no active condition would otherwise match every boss bar - guard against that. Not used yet btw.*/
     fun hasCriteria(): Boolean =
         pattern.isNotBlank() || color != BossBarColorFilter.ANY ||
             darken != TriState.ANY || music != TriState.ANY || fog != TriState.ANY
