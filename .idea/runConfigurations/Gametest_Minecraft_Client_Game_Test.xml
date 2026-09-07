@@ -1,0 +1,16 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" factoryName="Application" name="Gametest Minecraft Client Game Test" type="Application">
+    <option name="MAIN_CLASS_NAME" value="net.fabricmc.devlaunchinjector.Main"/>
+    <module name="bossbarhider.gametest"/>
+    <option name="PROGRAM_PARAMETERS" value="--username Player0"/>
+    <option name="VM_PARAMETERS" value="-Dfabric.dli.config=E:\INTELLIJ@@0020PROJECTS\bossbarhider\.gradle\loom-cache\launch.cfg -Dfabric.dli.env=client -Dfabric.dli.main=net.fabricmc.loader.impl.launch.knot.KnotClient -XX:StackShadowPages=32 --sun-misc-unsafe-memory-access=allow --enable-native-access=ALL-UNNAMED -Dfabric.client.gametest &quot;-Dfabric.client.gametest.testModResourcesPath=E:\INTELLIJ PROJECTS\bossbarhider\src\gametest\resources&quot;"/>
+    <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/build\run\clientGameTest/"/>
+    <method v="2">
+      <option enabled="true" name="Make"/>
+    </method>
+    <envs>
+
+    </envs>
+    <shortenClasspath name="ARGS_FILE"/>
+  <classpathModifications/></configuration>
+</component>

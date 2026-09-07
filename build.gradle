@@ -3,7 +3,6 @@ plugins {
     id 'org.jetbrains.kotlin.jvm' version '2.4.0'
     id 'maven-publish'
 
-    id("org.jetbrains.kotlin.plugin.serialization") version "2.4.20-Beta1"
 }
 
 version = project.mod_version
@@ -24,17 +23,6 @@ repositories {
         url = "https://maven.terraformersmc.com/releases/"
     }
 
-    // Cloth Config
-    maven {
-        name = "shedaniel"
-        url = "https://maven.shedaniel.me/"
-    }
-
-    // Text Placeholder API
-    maven {
-        name = "Nucleoid"
-        url = "https://maven.nucleoid.xyz/"
-    }
 }
 
 loom {
@@ -52,6 +40,13 @@ fabricApi {
     configureDataGeneration {
         client = true
     }
+    configureTests {
+        createSourceSet = true
+        modId = "bossbarhider-test"
+        enableGameTests = false
+        enableClientGameTests = true
+        clearRunDirectory = false
+    }
 }
 
 dependencies {
@@ -63,14 +58,15 @@ dependencies {
     // ModMenu
     implementation "com.terraformersmc:modmenu:${project.modmenu_version}"
 
-    // Text Placeholder API
-    implementation "eu.pb4:placeholder-api:${project.placeholder_api_version}"
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.12.2'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
 
-    // Cloth Config
-    implementation "me.shedaniel.cloth:cloth-config-fabric:${project.cloth_config_version}"
-
-    // KotlinX Serialization
-    implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:1.8.0"
+// Tests exercise the client-side rule model without launching Minecraft.
+sourceSets.test.compileClasspath += sourceSets.client.output + sourceSets.client.compileClasspath
+sourceSets.test.runtimeClasspath += sourceSets.client.output + sourceSets.client.runtimeClasspath
+test {
+    useJUnitPlatform()
 }
 
 processResources {
