@@ -5,6 +5,7 @@
   "name": "BossBar Hider",
   "description": "Hide boss bars by title, color and flags. Includes a custom settings screen with a live filter tester.",
   "authors": ["Jo_field"],
+  "icon": "assets/bossbarhider/icon/icon.png",
   "contact": {},
   "license": "GNU GENERAL PUBLIC LICENSE - Version 3",
   "environment": "client",
