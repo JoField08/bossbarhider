@@ -1,5 +1,6 @@
 package de.jo_field.bossbarhider.gui
 
+import com.mojang.blaze3d.platform.InputConstants
 import de.jo_field.bossbarhider.config.*
 import de.jo_field.bossbarhider.filter.BossBarFilter
 import de.jo_field.bossbarhider.filter.BossBarState
@@ -13,7 +14,6 @@ import net.minecraft.client.gui.screens.Screen
 import net.minecraft.client.input.KeyEvent
 import net.minecraft.client.input.MouseButtonEvent
 import net.minecraft.network.chat.Component
-import org.lwjgl.glfw.GLFW
 import java.util.Locale
 
 /** Draft state survives widget rebuilds and is committed only by Save. */
@@ -267,8 +267,8 @@ class BossBarHiderScreen(private val parent: Screen?) : Screen(tr("title")) {
     }
 
     override fun keyPressed(event: KeyEvent): Boolean {
-        if (event.key() == GLFW.GLFW_KEY_PAGE_DOWN || event.key() == GLFW.GLFW_KEY_PAGE_UP) {
-            val direction = if (event.key() == GLFW.GLFW_KEY_PAGE_DOWN) 1 else -1
+        if (event.key() == InputConstants.KEY_PAGEDOWN || event.key() == InputConstants.KEY_PAGEUP) {
+            val direction = if (event.key() == InputConstants.KEY_PAGEDOWN) 1 else -1
             viewport.scrollTo(viewport.offset + direction * viewport.height)
             clearFocus()
             positionRows()

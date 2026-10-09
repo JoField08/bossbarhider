@@ -30,7 +30,7 @@
   "bossbarhider.rule.title.hint": "Beliebiger Titel (optional)",
   "bossbarhider.rule.empty": "Mindestens eine Bedingung wählen. Leere Regeln blenden nichts aus.",
   "bossbarhider.rule.disabled": "Diese Regel ist deaktiviert.",
-  "bossbarhider.rule.matches": "✓ Passt zur Beispiel-Bossleiste",
+  "bossbarhider.rule.matches": "Passt zur Beispiel-Bossleiste",
   "bossbarhider.rule.no_match": "Passt nicht zur Beispiel-Bossleiste",
   "bossbarhider.rule.conditions": "Titel, Farbe und Flags sind mit UND verknüpft.",
   "bossbarhider.mode.contains": "Enthält",

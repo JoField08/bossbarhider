@@ -30,7 +30,7 @@
   "bossbarhider.rule.title.hint": "Any title (optional)",
   "bossbarhider.rule.empty": "Choose at least one condition. Empty rules hide nothing.",
   "bossbarhider.rule.disabled": "This rule is disabled.",
-  "bossbarhider.rule.matches": "✓ Matches the sample boss bar",
+  "bossbarhider.rule.matches": "Matches the sample boss bar",
   "bossbarhider.rule.no_match": "Does not match the sample boss bar",
   "bossbarhider.rule.conditions": "Title, color and flags are combined with AND.",
   "bossbarhider.mode.contains": "Contains",
